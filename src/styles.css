@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Amarante&display=swap");
+
+.App {
+  font-family: cursive;
+  text-align: center;
+}
+
+.HeaderDiv {
+  font-family: Amarante;
+  border: 1px;
+  padding: 10px;
+  box-shadow: 2px 5px rgb(128, 128, 128);
+  background-image: -webkit-linear-gradient(
+    -90deg,
+    rgba(0, 0, 255, 0.755),
+    rgba(128, 0, 128, 0.728)
+  );
+}
