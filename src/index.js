@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./components/Header";
 import "./styles.css";
 import Header from "./components/Header";
+import SideBar from "./components/SideBar";
 
 function App() {
   return (
-    <div className="App">
-      <Header textToDisplay="HELLO" />
-      <h1>Hello CodeSandbox</h1>
-      <h2>Hello World, how are you</h2>
+    <div id="App">
+      <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+      <div id="page-wrap">
+        <Header textToDisplay="Header" />
+      </div>
     </div>
   );
 }
