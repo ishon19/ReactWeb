@@ -9,7 +9,7 @@ function App() {
     <div id="App">
       <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
       <div id="page-wrap">
-        <Header textToDisplay="Header" />
+        <Header textToDisplay="Shopify" />
       </div>
     </div>
   );

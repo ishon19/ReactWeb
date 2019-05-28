@@ -5,7 +5,8 @@ import { faHome, faQuestion, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 export default props => {
   return (
-    <Menu {...props}>
+    <Menu disableAutoFocus {...props}>
+      <a id="info" />
       <a id="home" className="menu-item" href="/">
         <FontAwesomeIcon icon={faHome} /> Home
       </a>

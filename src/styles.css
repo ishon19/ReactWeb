@@ -4,19 +4,23 @@
 #App {
   font-family: "Carter One", cursive;
   text-align: center;
+  height: 100%;
+  -webkit-overflow-scrolling: hidden;
 }
 
 .HeaderDiv {
   font-family: "Carter One", cursive;
   border: 1px;
-  padding: 5px;
+  padding: 4px;
   border-radius: 2px;
-  /* box-shadow: 2px 5px rgb(128, 128, 128); */
-  background-image: -webkit-linear-gradient(
+  box-shadow: 2px 5px rgb(27, 27, 27);
+  /* background-image: -webkit-linear-gradient(
     -90deg,
-    rgb(107, 222, 240),
-    rgba(101, 241, 101, 0.87)
-  );
+    rgba(107, 222, 240, 0.802),
+    rgba(78, 209, 78, 0.659)
+  ); */
+  background-color: rgb(71, 69, 69);
+  color: white;
 }
 
 #page-wrap {
@@ -25,7 +29,7 @@
 }
 
 .bm-item:hover {
-  color: rgb(151, 55, 55);
+  color: rgb(128, 122, 122);
 }
 
 /* Individual item */
@@ -49,12 +53,12 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  background: #ffffff;
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #a90000;
+  background: #9e9b9b;
 }
 
 /* Position and sizing of clickable cross button */
