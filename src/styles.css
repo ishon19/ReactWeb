@@ -7,7 +7,7 @@
 
 .HeaderDiv {
   font-family: "Carter One", cursive;
-  border: 1px;
+  border: 2px;
   padding: 4px;
   border-radius: 2px;
   z-index: 150;
@@ -25,6 +25,20 @@
   text-align: center;
 }
 
+.bm-item:hover {
+  color: rgb(128, 122, 122);
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  /* Our sidebar item styling */
+  text-decoration: none;
+  color: #d1d1d1;
+  transition: color 0.2s;
+  align-content: right;
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
@@ -36,12 +50,12 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  background: #ffffff;
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #a90000;
+  background: #9e9b9b;
 }
 
 /* Position and sizing of clickable cross button */
@@ -79,12 +93,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Wrapper for item list */
 .bm-item-list {
   color: #b8b7ad;
-  /* padding: 0.5em; */
-}
-
-/* Individual item */
-.bm-item {
-  display: inline-block;
+  /* padding: 0.8em; */
 }
 
 /* Styling of overlay */
