@@ -1,7 +1,7 @@
 import React from "react";
 
 const ItemList = props => {
-  return <div />;
+  return <div className="item-container" />;
 };
 
 export default ItemList;

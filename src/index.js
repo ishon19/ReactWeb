@@ -2,15 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles.css";
 import Header from "./components/Header";
-import SideBar from "./components/SideBar";
+import NavDrawer from "./components/NavDrawer";
 
 function App() {
   return (
     <div id="App">
-      <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
-      <div id="page-wrap">
+      {/* <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} /> */}
+      {/* <div id="page-wrap">
         <Header textToDisplay="Shopify" />
-      </div>
+      </div> */}
+      <NavDrawer />
     </div>
   );
 }

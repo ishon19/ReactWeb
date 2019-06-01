@@ -1,17 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Amarante&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Carter+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 #App {
   font-family: "Carter One", cursive;
 }
 
 .HeaderDiv {
+  position: relative;
   font-family: "Carter One", cursive;
   border: 2px;
   padding: 4px;
   border-radius: 2px;
-  z-index: 150;
-  box-shadow: 2px 6px rgba(146, 140, 140, 0.707);
+  z-index: 1;
+  box-shadow: 2px 6px rgba(192, 192, 192, 0.836);
   /* background-image: -webkit-linear-gradient(
     -90deg,
     rgba(107, 222, 240, 0.802),
@@ -99,4 +101,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+
+/* General styling */
+.item-container {
+  width: 100%;
+  height: 30%;
 }
