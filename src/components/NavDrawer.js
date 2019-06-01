@@ -17,7 +17,6 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { nominalTypeHack } from "prop-types";
 
 const drawerWidth = 250;
 
@@ -59,6 +58,22 @@ const useStyle = makeStyles(theme => ({
     padding: "0 8 px",
     ...theme.mixins.toolbar,
     justifyContent: "flex-end"
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    }),
+    marginLeft: -drawerWidth
+  },
+  contentShift: {
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen
+    }),
+    marginLeft: 0
   }
 }));
 
@@ -105,7 +120,49 @@ function PersistentDrawerLeft() {
         classes={{
           paper: classes.drawerPaper
         }}
-      />
+      >
+        <div className={classes.drawerHeader}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </div>
+        <Divider />
+        <List>
+          {["Electronics", "Games", "Music", "Headphones"].map(
+            (item, index) => (
+              <ListItem button key={item}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={item} />
+              </ListItem>
+            )
+          )}
+        </List>
+        <Divider />
+        <List>
+          {["Account", "My Orders", "Track Orders"].map((item, index) => (
+            <ListItem button key={item}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={item} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+      <main
+        className={clsx(classes.content, {
+          [classes.contentShift]: open
+        })}
+      >
+        <div className={classes.drawerHeader} />
+        <Typography paragraph>Welcome to the site</Typography>
+      </main>
     </div>
   );
 }
