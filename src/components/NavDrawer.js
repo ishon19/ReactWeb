@@ -17,6 +17,8 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import { lightBlue, blue, red } from "@material-ui/core/colors";
 
 const drawerWidth = 250;
 
@@ -28,7 +30,8 @@ const useStyle = makeStyles(theme => ({
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    })
+    }),
+    colorDefault: lightBlue
   },
   appBarShift: {
     width: `calc(100%-${drawerWidth}px)`,
@@ -74,6 +77,10 @@ const useStyle = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen
     }),
     marginLeft: 0
+  },
+  headerText: {
+    alignContent: "center",
+    background: lightBlue
   }
 }));
 
@@ -88,6 +95,10 @@ function PersistentDrawerLeft() {
 
   function handleDrawerClose() {
     setOpen(false);
+  }
+
+  function hideSideBar() {
+    open ? setOpen(false) : setOpen(true);
   }
 
   return (
@@ -148,7 +159,7 @@ function PersistentDrawerLeft() {
           {["Account", "My Orders", "Track Orders"].map((item, index) => (
             <ListItem button key={item}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <AccountBoxIcon /> : <MailIcon />}
               </ListItemIcon>
               <ListItemText primary={item} />
             </ListItem>
@@ -156,6 +167,7 @@ function PersistentDrawerLeft() {
         </List>
       </Drawer>
       <main
+        onClick={hideSideBar}
         className={clsx(classes.content, {
           [classes.contentShift]: open
         })}
