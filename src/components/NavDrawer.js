@@ -31,7 +31,7 @@ const useStyle = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
-    colorDefault: lightBlue
+    background: "linear-gradient(to right, darkblue , lightblue)"
   },
   appBarShift: {
     width: `calc(100%-${drawerWidth}px)`,
@@ -53,7 +53,8 @@ const useStyle = makeStyles(theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    flexShrink: 0
+    flexShrink: 0,
+    background: "linear-gradient(to bottom, white , lightblue)"
   },
   drawerHeader: {
     display: "flex",
@@ -167,13 +168,14 @@ function PersistentDrawerLeft() {
         </List>
       </Drawer>
       <main
-        onClick={hideSideBar}
         className={clsx(classes.content, {
           [classes.contentShift]: open
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>Welcome to the site</Typography>
+        <Typography paragraph onClick={hideSideBar}>
+          Welcome to the site
+        </Typography>
       </main>
     </div>
   );
