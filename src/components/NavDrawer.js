@@ -20,8 +20,19 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import { lightBlue } from "@material-ui/core/colors";
 import ImageCard from "./ImageCard";
+import { fade } from "@material-ui/core/styles/colorManipulator";
+import SearchIcon from "@material-ui/icons/Search";
+import { InputBase } from "@material-ui/core";
 
 const drawerWidth = 250;
+
+var productNames = [
+  "Product A",
+  "Product B",
+  "Product C",
+  "Product D",
+  "Product E"
+];
 
 const useStyle = makeStyles(theme => ({
   root: {
@@ -83,6 +94,40 @@ const useStyle = makeStyles(theme => ({
   headerText: {
     alignContent: "center",
     background: lightBlue
+  },
+  cardContainer: {
+    // To add the styling here
+    overflow: "scroll",
+    width: 100,
+    height: 50
+  },
+  search: {
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    "&:hover": {
+      backgroundColor: fade(theme.palette.common.white, 0.25)
+    },
+    marginRight: theme.spacing(1),
+    marginLeft: 50,
+    width: "50%"
+  },
+  searchIcon: {
+    width: theme.spacing(7),
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  inputRoot: {
+    color: "inherit"
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 7),
+    transition: theme.transitions.create("width"),
+    width: "100%"
   }
 }));
 
@@ -97,10 +142,6 @@ function PersistentDrawerLeft() {
 
   function handleDrawerClose() {
     setOpen(false);
-  }
-
-  function hideSideBar() {
-    open ? setOpen(false) : setOpen(true);
   }
 
   return (
@@ -123,6 +164,15 @@ function PersistentDrawerLeft() {
           <Typography variant="h6" noWrap>
             Shopify
           </Typography>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search.."
+              classes={{ root: classes.inputRoot, input: classes.inputInput }}
+            />
+          </div>
         </ToolBar>
       </AppBar>
       <Drawer
@@ -177,7 +227,11 @@ function PersistentDrawerLeft() {
         {/* <Typography paragraph onClick={hideSideBar}>
           Welcome to the site
         </Typography> */}
-        <ImageCard title="Product A" />
+        <div>
+          {productNames.map((item, index) => (
+            <ImageCard title={item} h1Text={item} />
+          ))}
+        </div>
       </main>
     </div>
   );

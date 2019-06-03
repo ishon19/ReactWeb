@@ -12,7 +12,8 @@ import {
 
 const style = makeStyles({
   card: {
-    maxWidth: 345
+    maxWidth: 500,
+    marginBottom: 20
   },
   media: {
     height: 150
@@ -28,7 +29,7 @@ function ImageCard(props) {
         <CardMedia classes={classes.media} title="Product A" />
         <CardContent>
           <Typography variant="h5" component="h2">
-            Hello
+            {props.h1Text}
           </Typography>
           <Typography variant="body2" component="p" color="textSecondary">
             Click on the card to navigate
