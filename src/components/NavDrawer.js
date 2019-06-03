@@ -18,7 +18,8 @@ import MailIcon from "@material-ui/icons/Mail";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
-import { lightBlue, blue, red } from "@material-ui/core/colors";
+import { lightBlue } from "@material-ui/core/colors";
+import ImageCard from "./ImageCard";
 
 const drawerWidth = 250;
 
@@ -173,9 +174,10 @@ function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph onClick={hideSideBar}>
+        {/* <Typography paragraph onClick={hideSideBar}>
           Welcome to the site
-        </Typography>
+        </Typography> */}
+        <ImageCard title="Product A" />
       </main>
     </div>
   );
