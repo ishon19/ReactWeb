@@ -26,7 +26,12 @@ function ImageCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia classes={classes.media} title="Product A" />
+        <CardMedia
+          classes={classes.media}
+          title="Product A"
+          image={require("/src/images/sample.jpg")}
+          style={{ height: 0, paddingTop: "30%" }}
+        />
         <CardContent>
           <Typography variant="h5" component="h2">
             {props.h1Text}
