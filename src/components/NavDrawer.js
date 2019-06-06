@@ -23,6 +23,7 @@ import ImageCard from "./ImageCard";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import SearchIcon from "@material-ui/icons/Search";
 import { InputBase } from "@material-ui/core";
+import GridCard from "./GridCard";
 
 const drawerWidth = 250;
 
@@ -43,7 +44,7 @@ const useStyle = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
-    background: "linear-gradient(to right, darkblue , lightblue)"
+    background: "linear-gradient(to right, #191919 60% , gray)"
   },
   appBarShift: {
     width: `calc(100%-${drawerWidth}px)`,
@@ -66,7 +67,7 @@ const useStyle = makeStyles(theme => ({
   drawerPaper: {
     width: drawerWidth,
     flexShrink: 0,
-    background: "linear-gradient(to bottom, white , lightblue)"
+    background: "linear-gradient(to bottom, white 80%, gray)"
   },
   drawerHeader: {
     display: "flex",
@@ -229,7 +230,8 @@ function PersistentDrawerLeft() {
         </Typography> */}
         <div>
           {productNames.map((item, index) => (
-            <ImageCard title={item} h1Text={item} />
+            // <ImageCard title={item} h1Text={item} />
+            <GridCard />
           ))}
         </div>
       </main>
