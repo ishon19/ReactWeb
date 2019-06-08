@@ -230,7 +230,7 @@ function PersistentDrawerLeft() {
         </Typography> */}
         <div>
           {productNames.map((item, index) => (
-            // <ImageCard title={item} h1Text={item} />
+            //<ImageCard title={item} h1Text={item} />
             <GridCard />
           ))}
         </div>
