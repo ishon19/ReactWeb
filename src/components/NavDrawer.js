@@ -99,8 +99,8 @@ const useStyle = makeStyles(theme => ({
   cardContainer: {
     // To add the styling here
     overflow: "scroll",
-    width: 100,
-    height: 50
+    width: "100%",
+    height: "30%"
   },
   search: {
     position: "relative",
@@ -228,10 +228,10 @@ function PersistentDrawerLeft() {
         {/* <Typography paragraph onClick={hideSideBar}>
           Welcome to the site
         </Typography> */}
-        <div>
+        <div className={classes.cardContainer}>
           {productNames.map((item, index) => (
-            //<ImageCard title={item} h1Text={item} />
-            <GridCard />
+            <ImageCard title={item} h1Text={item} />
+            // <GridCard />
           ))}
         </div>
       </main>

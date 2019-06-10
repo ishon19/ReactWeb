@@ -1,6 +1,5 @@
 import React from "react";
 import ImageCard from "./ImageCard";
-import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
 const styles = makeStyles(theme => ({
@@ -24,9 +23,9 @@ const styles = makeStyles(theme => ({
 function GridCard() {
   const classes = styles();
   return (
-    <Grid direction={"row"}>
+    <div className={classes.root}>
       <ImageCard title="Test" h1Text="OK" />
-    </Grid>
+    </div>
   );
 }
 

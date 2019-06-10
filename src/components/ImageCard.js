@@ -12,6 +12,9 @@ import {
 
 const style = makeStyles({
   card: {
+    display: "flex",
+    flex: 1,
+    flexWrap: "wrap",
     maxWidth: 500,
     marginBottom: 20
   },
