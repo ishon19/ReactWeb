@@ -228,7 +228,7 @@ function PersistentDrawerLeft() {
         {/* <Typography paragraph onClick={hideSideBar}>
           Welcome to the site
         </Typography> */}
-        <div className={classes.cardContainer}>
+        <div>
           {productNames.map((item, index) => (
             <ImageCard title={item} h1Text={item} />
             // <GridCard />
