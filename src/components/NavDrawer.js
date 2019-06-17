@@ -24,6 +24,7 @@ import { fade } from "@material-ui/core/styles/colorManipulator";
 import SearchIcon from "@material-ui/icons/Search";
 import { InputBase } from "@material-ui/core";
 import GridCard from "./GridCard";
+import { withRouter } from 'react-router-dom'
 
 const drawerWidth = 250;
 
@@ -145,6 +146,13 @@ function PersistentDrawerLeft() {
     setOpen(false);
   }
 
+  function routeToPage() {
+   console.log("item clicked!");
+   withRouter(({history}) => (
+     history.push('/ProductDetail')
+    ))
+  }
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -230,7 +238,7 @@ function PersistentDrawerLeft() {
         </Typography> */}
         <div>
           {productNames.map((item, index) => (
-            <ImageCard title={item} h1Text={item} />
+             <ImageCard title={item} h1Text={item} onClick={routeToPage} />        
             // <GridCard />
           ))}
         </div>
