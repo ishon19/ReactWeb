@@ -45,9 +45,9 @@ function ImageCard(props) {
         <Button size="small" color="primary">
           OK
         </Button>
-        <Button size="small" color="primary">
+        {/* <Button size="small" color="primary">
           Know More
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>
   );

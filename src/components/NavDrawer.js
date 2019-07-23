@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -15,6 +16,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import ArrowIcon from "@material-ui/icons/ArrowBack";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
@@ -22,9 +24,9 @@ import { lightBlue } from "@material-ui/core/colors";
 import ImageCard from "./ImageCard";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import SearchIcon from "@material-ui/icons/Search";
-import { InputBase } from "@material-ui/core";
-import GridCard from "./GridCard";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { InputBase, CircularProgress } from "@material-ui/core";
+import ProductDetail from "./ProductDetail";
+//import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const drawerWidth = 250;
 
@@ -137,6 +139,7 @@ function PersistentDrawerLeft() {
   const classes = useStyle();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [itemClicked, setItemClicked] = React.useState(false);
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -148,11 +151,8 @@ function PersistentDrawerLeft() {
 
   function routeToPage() {
     console.log("item clicked!");
-    //var itemName = event.target.attributes.getNamedItem("prodName").value;
-    //console.log(this.props.prodName);
-    //  withRouter(({history}) => (
-    //    history.push('/ProductDetail')
-    //   ))
+    setItemClicked(true);
+    //Need to load the component here..
   }
 
   return (
@@ -170,7 +170,7 @@ function PersistentDrawerLeft() {
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            {!itemClicked ? <MenuIcon /> : <ArrowIcon />}
           </IconButton>
           <Typography variant="h6" noWrap>
             Shopify
@@ -238,12 +238,14 @@ function PersistentDrawerLeft() {
         {/* <Typography paragraph onClick={hideSideBar}>
           Welcome to the site
         </Typography> */}
+        {itemClicked && <ProductDetail />}
         <div>
-          {productNames.map((item, index) => (
-            <div onClick={routeToPage} prodName={item}>
-              <ImageCard title={item} h1Text={item} />
-            </div>
-          ))}
+          {!itemClicked &&
+            productNames.map((item, index) => (
+              <div onClick={routeToPage} prodName={item}>
+                <ImageCard title={item} h1Text={item} />
+              </div>
+            ))}
         </div>
       </main>
     </div>
