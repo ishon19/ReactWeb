@@ -170,7 +170,16 @@ function PersistentDrawerLeft() {
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            {!itemClicked ? <MenuIcon /> : <ArrowIcon />}
+            {!itemClicked ? (
+              <MenuIcon />
+            ) : (
+              <ArrowIcon
+                onClick={() => {
+                  console.log("Arrow clicked");
+                  setItemClicked(false);
+                }}
+              />
+            )}
           </IconButton>
           <Typography variant="h6" noWrap>
             Shopify
