@@ -28,6 +28,16 @@ import { InputBase, CircularProgress } from "@material-ui/core";
 import ProductDetail from "./ProductDetail";
 //import { BrowserRouter as Router, Link } from "react-router-dom";
 
+class NavDrawer extends React.Component {
+  componentWillMount() {
+    console.log("Inside component will mount");
+    const [productInfo, setProductInfo] = React.useState(false);
+    fetch("https://obscure-garden-39706.herokuapp.com/").then(data => {
+      console.log(data);
+    });
+  }
+}
+
 const drawerWidth = 250;
 
 var productNames = [
@@ -140,8 +150,10 @@ function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [itemClicked, setItemClicked] = React.useState(false);
+  const [selectedProduct, setSelectedProduct] = React.useState("");
 
   function handleDrawerOpen() {
+    if (itemClicked) return;
     setOpen(true);
   }
 
@@ -149,9 +161,10 @@ function PersistentDrawerLeft() {
     setOpen(false);
   }
 
-  function routeToPage() {
+  function routeToPage(event) {
     console.log("item clicked!");
-    setItemClicked(true);
+    console.log("Event is: ", selectedProduct);
+
     //Need to load the component here..
   }
 
@@ -247,11 +260,16 @@ function PersistentDrawerLeft() {
         {/* <Typography paragraph onClick={hideSideBar}>
           Welcome to the site
         </Typography> */}
-        {itemClicked && <ProductDetail />}
+        {itemClicked && <ProductDetail id={selectedProduct} />}
         <div>
           {!itemClicked &&
             productNames.map((item, index) => (
-              <div onClick={routeToPage} prodName={item}>
+              <div
+                onClick={() => {
+                  setItemClicked(true);
+                  setSelectedProduct(item);
+                }}
+              >
                 <ImageCard title={item} h1Text={item} />
               </div>
             ))}
