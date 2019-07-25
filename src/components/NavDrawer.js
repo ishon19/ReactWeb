@@ -142,6 +142,9 @@ const useStyle = makeStyles(theme => ({
     padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create("width"),
     width: "100%"
+  },
+  TextStyle: {
+    fontSize: 10
   }
 }));
 
@@ -257,8 +260,8 @@ function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-        {/* <Typography paragraph onClick={hideSideBar}>
-          Welcome to the site
+        {/* <Typography>
+          Top Picks of the Month
         </Typography> */}
         {itemClicked && <ProductDetail id={selectedProduct} />}
         <div>

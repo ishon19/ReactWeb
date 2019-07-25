@@ -9,6 +9,7 @@ import {
   CardActions,
   Button
 } from "@material-ui/core";
+import { string } from "prop-types";
 
 const style = makeStyles({
   card: {
@@ -20,6 +21,14 @@ const style = makeStyles({
   }
 });
 
+const imagePaths = {
+  "Product A": require("/src/images/ProductA.jpg"),
+  "Product B": require("/src/images/ProductB.jpg"),
+  "Product C": require("/src/images/ProductC.jpg"),
+  "Product D": require("/src/images/ProductD.jpg"),
+  "Product E": require("/src/images/ProductE.jpg")
+};
+
 function ImageCard(props) {
   const classes = style();
 
@@ -28,8 +37,8 @@ function ImageCard(props) {
       <CardActionArea>
         <CardMedia
           classes={classes.media}
-          title="Product A"
-          image={require("/src/images/sample.jpg")}
+          title={props.title}
+          image={imagePaths[props.title]}
           style={{ height: 0, paddingTop: "30%" }}
         />
         <CardContent>
@@ -42,9 +51,9 @@ function ImageCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        {/* <Button size="small" color="primary">
           OK
-        </Button>
+        </Button> */}
         {/* <Button size="small" color="primary">
           Know More
         </Button> */}
