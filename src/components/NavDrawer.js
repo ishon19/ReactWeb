@@ -251,16 +251,14 @@ function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {["Electronics", "Games", "Music", "Headphones"].map(
-            (item, index) => (
-              <ListItem button key={item}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={item} />
-              </ListItem>
-            )
-          )}
+          {["Home Page", "Electronics"].map((item, index) => (
+            <ListItem button key={item}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={item} />
+            </ListItem>
+          ))}
         </List>
         <Divider />
         <List>
