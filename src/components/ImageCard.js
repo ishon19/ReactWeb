@@ -9,12 +9,12 @@ import {
   CardActions,
   Button
 } from "@material-ui/core";
-import { string } from "prop-types";
 
 const style = makeStyles({
   card: {
-    maxWidth: 500,
-    marginBottom: 20
+    maxWidth: 700,
+    marginBottom: 20,
+    marginLeft: 10
   },
   media: {
     height: 150
