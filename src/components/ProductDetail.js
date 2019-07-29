@@ -7,12 +7,21 @@ import { Button } from "@material-ui/core";
 import ls from "local-storage";
 import Skeleton from "react-loading-skeleton";
 import { SnackbarProvider, wrapComponent } from "react-snackbar-alert";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const style = makeStyles(theme => ({
   card: {
     marginTop: 40
   }
 }));
+
+var BannerNames = {
+  "Product A": "Gaming Laptops",
+  "Product B": "General Laptops",
+  "Product C": "Headphones",
+  "Product D": "Gaming Headphones",
+  "Product E": "Mobile Phones"
+};
 
 const DisplayProductDetails = props => {
   //Style class
@@ -41,7 +50,8 @@ const DisplayProductDetails = props => {
         className={styleClasses.card}
         onClick={showSnackbar}
       >
-        Add {props.id} to Cart
+        <ShoppingCartIcon />
+        &nbsp;Add to Cart
       </Button>
     );
   });
@@ -54,18 +64,54 @@ const DisplayProductDetails = props => {
 
   //const alert = useAlert();
   const [apiFetched, setApiFetched] = React.useState(false);
-  console.log("Product datails of : ", props.id);
+  console.log("Product datails of : ", props.label);
   // console.log("State variable: ", this.state.selectedProduct);
   //alert.show("Showing details of ", props.id);
   return (
     <div>
-      {<ImageCard title={props.id} className={styleClasses.card} />}
+      {
+        <ImageCard
+          id={props.id}
+          h1Text={BannerNames[props.id]}
+          className={styleClasses.card}
+        />
+      }
       <div>
         Model:&nbsp;
-        {apiFetched ? ls.get("APIData")[props.id].productModel : <Skeleton />}
+        {apiFetched ? (
+          <div style={{ color: "darkBlue" }}>
+            {ls.get("APIData")[props.id].productModel}
+          </div>
+        ) : (
+          <Skeleton />
+        )}
         <br />
         Price:&nbsp;
-        {apiFetched ? ls.get("APIData")[props.id].price : <Skeleton />}
+        {apiFetched ? (
+          <div style={{ color: "darkBlue" }}>
+            {ls.get("APIData")[props.id].price}
+          </div>
+        ) : (
+          <Skeleton />
+        )}
+        <br />
+        Description:&nbsp;
+        {apiFetched ? (
+          <div style={{ color: "darkBlue" }}>
+            {ls.get("APIData")[props.id].desc}
+          </div>
+        ) : (
+          <Skeleton />
+        )}
+        <br />
+        Category:&nbsp;
+        {apiFetched ? (
+          <div style={{ color: "darkBlue" }}>
+            {ls.get("APIData")[props.id].productCategory}
+          </div>
+        ) : (
+          <Skeleton />
+        )}
         <br />
       </div>
       <SnackbarProvider position="bottom">

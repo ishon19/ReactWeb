@@ -6,6 +6,22 @@
   font-family: "Carter One", cursive;
 }
 
+.homepage {
+  height: 100%;
+  width: 100%;
+  background: #3d7eaa; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffe47a,
+    #3d7eaa
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffe47a,
+    #3d7eaa
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .HeaderDiv {
   position: relative;
   font-family: "Carter One", cursive;

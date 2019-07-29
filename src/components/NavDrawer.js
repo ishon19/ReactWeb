@@ -53,6 +53,14 @@ var productNames = [
   "Product E"
 ];
 
+var BannerNames = {
+  "Product A": "Gaming Laptops",
+  "Product B": "General Laptops",
+  "Product C": "Headphones",
+  "Product D": "Gaming Headphones",
+  "Product E": "Mobile Phones"
+};
+
 const useStyle = makeStyles(theme => ({
   root: {
     display: "flex"
@@ -213,7 +221,7 @@ function PersistentDrawerLeft() {
             )}
           </IconButton>
           <Typography variant="h6" noWrap>
-            Shopify
+            eShop
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -307,7 +315,7 @@ function PersistentDrawerLeft() {
                   setSelectedProduct(item);
                 }}
               >
-                <ImageCard title={item} h1Text={item} />
+                <ImageCard id={item} h1Text={BannerNames[item]} />
               </div>
             ))}
         </div>

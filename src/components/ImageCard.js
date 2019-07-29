@@ -37,17 +37,17 @@ function ImageCard(props) {
       <CardActionArea>
         <CardMedia
           classes={classes.media}
-          title={props.title}
-          image={imagePaths[props.title]}
+          title={props.id}
+          image={imagePaths[props.id]}
           style={{ height: 0, paddingTop: "30%" }}
         />
         <CardContent>
           <Typography variant="h5" component="h2">
             {props.h1Text}
           </Typography>
-          <Typography variant="body2" component="p" color="textSecondary">
+          {/* <Typography variant="body2" component="p" color="textSecondary">
             Click on the card to navigate
-          </Typography>
+          </Typography> */}
         </CardContent>
       </CardActionArea>
       <CardActions>
